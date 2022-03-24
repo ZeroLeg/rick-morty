@@ -1,0 +1,8 @@
+###
+GET https://rickandmortyapi.com/api
+
+###
+GET https://rickandmortyapi.com/api/character
+
+###
+GET https://rickandmortyapi.com/api/character/1
