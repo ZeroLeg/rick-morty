@@ -10,7 +10,7 @@ const Card = {
 };
 export const Character = () => {
   const { characterId } = useParams();
-  const {data, isLoaded, error} = useCharacterRequest(`${process.env.REACT_APP_API_URL}/character/${characterId}`);
+  const {data, isLoaded, error, postData} = useCharacterRequest(`${process.env.REACT_APP_API_URL}/character/${characterId}`);
 
   if (error !== null) {
     return <div>Error: {error.message}</div>;
@@ -19,10 +19,9 @@ export const Character = () => {
     return <div>Loading...</div>;
   }
 
-  //console.log(data.location.name);
   return (
-    <div className="bg-dark d-flex align-items-center justify-content-center flex-grow-1" style={Styles}>
-      <div className="card" style={Card}>
+    <div className=" d-flex align-items-center justify-content-center flex-grow-1" style={Styles}>
+      <div className="card bg-dark text-white" style={Card}>
         <img src={data.image} className="card-img-top" alt="..." />
         <div className="card-body">
           <div className='d-flex flex-grow-1 justify-content-between'>
@@ -32,7 +31,7 @@ export const Character = () => {
             (
               <span className='text-success'>Alive</span>
             ) : (
-              <span className='text-error'>Dead</span>
+              <span className='text-danger'>Dead</span>
             )}
 
           </div>

@@ -9,11 +9,18 @@ function App() {
   return (
     <div className="App">
       <NavBar /> 
-      <Routes>
-          <Route path="characters" element={<Characters />} />
-          <Route path="/characters/:characterId" element={<Character />} />
-          <Route path="locations" element={<Locations />} />
-      </Routes>
+      
+      <div className='container'>
+        <div className='row'>
+          <div className='col-12 py-5'>
+            <Routes>
+                <Route path="characters" element={<Characters />} />
+                <Route path="/characters/:characterId" element={<Character />} />
+                <Route path="locations" element={<Locations />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

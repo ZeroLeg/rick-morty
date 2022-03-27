@@ -1,11 +1,12 @@
 import React from 'react';
 import { useCharactersRequest } from './hooks/useCharactersRequest';
 import { Link } from "react-router-dom";
+import { Pagination } from '../Pagination/Pagination';
 
 
 export const Characters = () => {
 
-  const { data, error, isLoaded } = useCharactersRequest(`${process.env.REACT_APP_API_URL}/character`);
+  const { data, error, isLoaded, pagination, setPagination, fetchData } = useCharactersRequest(`${process.env.REACT_APP_API_URL}/character`);
   
   if (error !== null) {
     return <div>Error: {error.message}</div>;
@@ -15,7 +16,11 @@ export const Characters = () => {
   }
   return (
   <div>
-    <table className="table align-middle table-striped">
+    <Pagination fetchData={fetchData} setPagination={setPagination} pagination={pagination}>
+
+    </Pagination>
+
+    <table className="table align-middle table-striped shadow-lg p-3 bg-body rounded">
       <thead>
         <tr >
           <th scope="col"></th>
